@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Data;
 
@@ -7,10 +8,15 @@ namespace MySqlClient
     public class Program
     {
         Ado ado = new Ado();
+       public static IConfigurationRoot Configuration;
+
+
         static string conStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\kimle\\OneDrive\\Документы\\citymvc.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True";
         static string conStr2 = "Server=LERA;Database=testDB;User Id=user1;Password=1234;TrustServerCertificate=True;\r\n";
+        static string con3 = "Server=LERA;Database=ado;Trusted_Connection=True;";
         static void Main()
         {
+            Configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             //Console.WriteLine("Hello, World!");
             //TestConnection();
             //Console.WriteLine(ShowDate());
@@ -19,8 +25,10 @@ namespace MySqlClient
             //SelectFromTableFunction();
             //InsertProc();
             //SelectFromProc();
-            Ado.ShowAll();
-            
+            //Ado.ShowAll();
+            //Ado_ClassWork.Select();
+            // Ado_ClassWork.OutMoreAgainstPop(5000000);
+            Cars.OutModel("Hyndai Sonata");
         }
 
         static string ShowDate()
