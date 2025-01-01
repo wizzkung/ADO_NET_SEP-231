@@ -11,13 +11,16 @@ namespace MySqlClient
 {
     public class Cars
     {
-        static IConfigurationRoot _configuration;
+        IConfigurationRoot configuration;
+        public Cars(IConfigurationRoot configuration)
+        {
+            this.configuration = configuration;
+
+        }
         public static void GetBetweenDates(DateTime dt1, DateTime dt2)
         {
-            if (_configuration == null)
-                throw new InvalidOperationException("Configuration is not initialized.");
-
-            using (SqlConnection db = new SqlConnection(_configuration["db"]))
+        
+            using (SqlConnection db = new SqlConnection(Program.Configuration["db"]))
             {
                 db.Open();
 
@@ -45,9 +48,7 @@ namespace MySqlClient
 
         public static void OutModel(string model)
         {
-            if (_configuration == null)
-                throw new InvalidOperationException("Configuration is not initialized.");
-            using (SqlConnection db = new SqlConnection(_configuration["db"]))
+            using (SqlConnection db = new SqlConnection(Program.Configuration["db"]))
             {
                 db.Open();
                 using (SqlCommand cmd = new SqlCommand("pCars;2", db))
@@ -67,10 +68,8 @@ namespace MySqlClient
 
         public static int GetTotalCostByColor(string color)
         {
-            if (_configuration == null)
-                throw new InvalidOperationException("Configuration is not initialized.");
-
-            using (SqlConnection db = new SqlConnection(_configuration["db"]))
+          
+            using (SqlConnection db = new SqlConnection(Program.Configuration["db"]))
             {
                 db.Open();
 
