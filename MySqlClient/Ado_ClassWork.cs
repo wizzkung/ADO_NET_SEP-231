@@ -164,5 +164,30 @@ namespace MySqlClient
             }
         }
 
+        public static void MultiSet()
+        {
+            using (SqlConnection db = new SqlConnection(Program.Configuration["db"]))
+            {
+                DataSet ds = new DataSet();
+                db.Open();
+                using (SqlCommand cmd = new SqlCommand("pMultiSet", db))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ds);
+                        for (int i = 0; i < ds.Tables.Count; i++)
+                        {
+                            foreach (DataRow item in ds.Tables[0].Rows)
+                            {
+                                Console.WriteLine(item[0].ToString());
+                            }
+                        }
+                    }
+                }
+
+                db.Close();
+            }
+        }
     }
 }

@@ -41,6 +41,8 @@ namespace MySqlClient
                         }
                     }
                 }
+
+                db.Close();
             }
         }
 
@@ -61,6 +63,7 @@ namespace MySqlClient
                     cmd.ExecuteNonQuery();
                     Console.WriteLine(cnt.Value);
                 }
+                db.Close();
 
             }
 
@@ -80,6 +83,8 @@ namespace MySqlClient
                     object result = cmd.ExecuteScalar();
                     return result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
                 }
+
+                db.Close();
             }
         }
 

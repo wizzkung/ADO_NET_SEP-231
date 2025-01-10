@@ -28,7 +28,9 @@ namespace MySqlClient
             //Ado.ShowAll();
             //Ado_ClassWork.Select();
             // Ado_ClassWork.OutMoreAgainstPop(5000000);
-            Cars.OutModel("Hyundai Sonata");
+            //Cars.OutModel("Hyundai Sonata");
+            
+           Ado_ClassWork.MultiSet();
         }
 
         static string ShowDate()
