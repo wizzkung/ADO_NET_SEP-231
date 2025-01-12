@@ -11,6 +11,7 @@ namespace MyEfCore.MyContext
     public class Context : DbContext
     {
         public DbSet<Country> Country { get; set; }
+        public DbSet<Stars> Stars { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer(Program.config["db"]);

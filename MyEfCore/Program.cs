@@ -12,74 +12,83 @@ namespace MyEfCore
         static void Main(string[] args)
         {
             config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            using (Context db = new Context())
-            {
+            EfHomeWork_1 m = new EfHomeWork_1();
 
-                //fetch
-                //foreach(var item in db.Country)
-                //{
-                //    Console.WriteLine(item.Id);
-                //}
+            m.DataAdd();
+            m.ShowData();
+            m.EditEverySecond();
+            m.ShowData();
+            m.DeleteWherePlusExist();
+            m.ShowData();
+           
+            //using (Context db = new Context())
+            //{
 
-                //add
-                //Country country = new Country
-                //{
-                //    Name = "Россия",
-                //    Capital = "Москва"
-                //};
+            //    //fetch
+            //    //foreach(var item in db.Country)
+            //    //{
+            //    //    Console.WriteLine(item.Id);
+            //    //}
 
-                //db.Country.Add(country);
-                //db.SaveChanges();
+            //    //add
+            //    //Country country = new Country
+            //    //{
+            //    //    Name = "Россия",
+            //    //    Capital = "Москва"
+            //    //};
 
-                //List<Country> countries = new List<Country>()
-                //{
-                //    new Country{Name = "Казахстан", Capital = "Астана"},
-                //    new Country{Name = "США", Capital = "Вашингтон"}
+            //    //db.Country.Add(country);
+            //    //db.SaveChanges();
 
-                //};
-                //db.Country.AddRange(countries);
-                //db.SaveChanges();
+            //    //List<Country> countries = new List<Country>()
+            //    //{
+            //    //    new Country{Name = "Казахстан", Capital = "Астана"},
+            //    //    new Country{Name = "США", Capital = "Вашингтон"}
 
-
-                //edit
-                //Country? country = db.Country.FirstOrDefault(z => z.Id == 1);
-                //if (country != null)
-                //{
-                //    country.Name = "Казахстан";
-                //    country.Capital = "Нур-Султан";
-                //    db.SaveChanges();
-                //}
-
-
-                //с идентификатором записи (id)
-                //var country = new Country {Id = 3, Name = "США", Capital = "Вашингтон ДС" };
-                //db.Entry<Country>(country).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                //db.SaveChanges();
+            //    //};
+            //    //db.Country.AddRange(countries);
+            //    //db.SaveChanges();
 
 
+            //    //edit
+            //    //Country? country = db.Country.FirstOrDefault(z => z.Id == 1);
+            //    //if (country != null)
+            //    //{
+            //    //    country.Name = "Казахстан";
+            //    //    country.Capital = "Нур-Султан";
+            //    //    db.SaveChanges();
+            //    //}
 
 
-                //delete
-                //var country = db.Country.Where(z => z.Id == 1 || z.Id == 2).ToList();
-                //if (country.Any())
-                //{
-                //   db.Country.RemoveRange(country);
-                //    db.SaveChanges();
-                //}
-
-                //Country country = db.Country.FirstOrDefault(z => z.Id == 1);
-                //if (country != null)
-                //{
-                //    db.Country.Remove(country);
-                //    db.SaveChanges();
-                //}
+            //    //с идентификатором записи (id)
+            //    //var country = new Country {Id = 3, Name = "США", Capital = "Вашингтон ДС" };
+            //    //db.Entry<Country>(country).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            //    //db.SaveChanges();
 
 
-                foreach (var item in db.Country)
-                {
-                    Console.WriteLine($"{item.Id}, { item.Name}, { item.Capital}");
-                }
-            }
+
+
+            //    //delete
+            //    //var country = db.Country.Where(z => z.Id == 1 || z.Id == 2).ToList();
+            //    //if (country.Any())
+            //    //{
+            //    //   db.Country.RemoveRange(country);
+            //    //    db.SaveChanges();
+            //    //}
+
+            //    //Country country = db.Country.FirstOrDefault(z => z.Id == 1);
+            //    //if (country != null)
+            //    //{
+            //    //    db.Country.Remove(country);
+            //    //    db.SaveChanges();
+            //    //}
+
+
+            //    foreach (var item in db.Country)
+            //    {
+            //        Console.WriteLine($"{item.Id}, { item.Name}, { item.Capital}");
+            //    }
+            //}
 
         }
     }
