@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using Microsoft.Extensions.Configuration;
 using MyEfCore.Model;
 using MyEfCore.MyContext;
+using MyEfCore.Service;
 
 namespace MyEfCore
 {
@@ -12,14 +13,16 @@ namespace MyEfCore
         static void Main(string[] args)
         {
             config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            EfHomeWork_1 m = new EfHomeWork_1();
+            //EfHomeWork_1 m = new EfHomeWork_1();
 
-            m.DataAdd();
-            m.ShowData();
-            m.EditEverySecond();
-            m.ShowData();
-            m.DeleteWherePlusExist();
-            m.ShowData();
+            //m.DataAdd();
+            //m.ShowData();
+            //m.EditEverySecond();
+            //m.ShowData();
+            //m.DeleteWherePlusExist();
+            //m.ShowData();
+            School school = new School();
+            school.Add();
            
             //using (Context db = new Context())
             //{

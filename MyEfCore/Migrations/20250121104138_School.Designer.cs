@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyEfCore.MyContext;
 
@@ -10,9 +11,10 @@ using MyEfCore.MyContext;
 namespace MyEfCore.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20250121104138_School")]
+    partial class School
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,25 +49,22 @@ namespace MyEfCore.Migrations
 
             modelBuilder.Entity("MyEfCore.Model.HomeWork_School.Subject", b =>
                 {
-                    b.Property<int>("TeacherID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeacherID"), 1L, 1);
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeacherId")
+                    b.Property<int>("TeacherID")
                         .HasColumnType("int");
 
-                    b.HasKey("TeacherID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("TeacherId");
+                    b.HasIndex("TeacherID");
 
                     b.ToTable("Subjects");
                 });
@@ -99,12 +98,12 @@ namespace MyEfCore.Migrations
                     b.Property<int>("StudentsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SubjectsTeacherID")
+                    b.Property<int>("SubjectsId")
                         .HasColumnType("int");
 
-                    b.HasKey("StudentsId", "SubjectsTeacherID");
+                    b.HasKey("StudentsId", "SubjectsId");
 
-                    b.HasIndex("SubjectsTeacherID");
+                    b.HasIndex("SubjectsId");
 
                     b.ToTable("StudentSubject");
                 });
@@ -113,7 +112,7 @@ namespace MyEfCore.Migrations
                 {
                     b.HasOne("MyEfCore.Model.HomeWork_School.Teacher", "Teacher")
                         .WithMany("Subjects")
-                        .HasForeignKey("TeacherId")
+                        .HasForeignKey("TeacherID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -130,7 +129,7 @@ namespace MyEfCore.Migrations
 
                     b.HasOne("MyEfCore.Model.HomeWork_School.Subject", null)
                         .WithMany()
-                        .HasForeignKey("SubjectsTeacherID")
+                        .HasForeignKey("SubjectsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
