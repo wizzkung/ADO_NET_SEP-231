@@ -13,6 +13,8 @@ namespace MyEfCore
         static void Main(string[] args)
         {
             config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            ManyToManyService m = new ManyToManyService();
+            m.fetch();
             //EfHomeWork_1 m = new EfHomeWork_1();
 
             //m.DataAdd();
@@ -21,9 +23,9 @@ namespace MyEfCore
             //m.ShowData();
             //m.DeleteWherePlusExist();
             //m.ShowData();
-            School school = new School();
-            school.Add();
-           
+            //School school = new School();
+            //school.Add();
+
             //using (Context db = new Context())
             //{
 
@@ -93,6 +95,29 @@ namespace MyEfCore
             //    }
             //}
 
+            ////ГИБРИДНЫЙ ВАРИАНТ БЕЗ МИГРАЦИЙ КОГДА В БД В РУЧНУЮ ДЕЛАЕШЬ ТАБЛИЦЫ ПОТОМ ЗЕРКАЛИШЬ В МОДЕЛИ
+            //using (Context db = new Context())
+            //{
+            //    //var emp = db.Employees.Find(1);
+            //    var join = (from e in db.Employees
+            //                join s in db.Salary on e.id equals s.employee_id
+            //                select new
+            //                {
+            //                    emp_id = e.id,
+            //                    emp_name = e.last_name + e.first_name,
+            //                    emp_gender = e.gender == "male" ? "Мужской" : "Женский",
+            //                    s_salary = s.salary
+            //                }).ToList(); // ToList будет ждать когда все джойны вылезут с бд
+
+            //    foreach (var item in join)
+            //    {
+            //        {
+
+            //            Console.WriteLine($"{item.emp_id} {item.emp_name} {item.emp_gender} {item.s_salary}");
+
+            //        }
+            //    }
+            //}
         }
     }
 }
