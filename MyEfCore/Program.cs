@@ -13,9 +13,19 @@ namespace MyEfCore
         static void Main(string[] args)
         {
             config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            ManyToManyService m = new ManyToManyService();
-            m.fetch();
+            //ManyToManyService m = new ManyToManyService();
+            //m.fetch();
             //EfHomeWork_1 m = new EfHomeWork_1();
+            //ModelsService services = new ModelsService();
+            BmwServices bmwServices = new BmwServices();
+           // bmwServices.Service_1();
+            //bmwServices.Service_2();
+            //bmwServices.Service_3();
+            bmwServices.Service_4();
+
+            //services.Service();
+            // services.Family();
+            //services.FromNavigation();
 
             //m.DataAdd();
             //m.ShowData();
@@ -25,6 +35,10 @@ namespace MyEfCore
             //m.ShowData();
             //School school = new School();
             //school.Add();
+
+
+
+
 
             //using (Context db = new Context())
             //{

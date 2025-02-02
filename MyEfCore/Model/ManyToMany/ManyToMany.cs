@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace MyEfCore.Model.ManyToMany
 {
+    [NotMapped]
     internal class ManyToMany
     {
     }
-
+    [NotMapped]
     public class Orders
     {
        
         public int id { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
     }
-
+    [NotMapped]
     public class Products
     {
         public int id { get; set; }
@@ -26,7 +27,7 @@ namespace MyEfCore.Model.ManyToMany
         public string category { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
     }
-
+    [NotMapped]
     public class OrderDetails
     {
         public int order_id { get; set; }
