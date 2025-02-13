@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyEfCore.DTO;
 using MyEfCore.Model;
 using MyEfCore.Model.HomeWork_School;
 using MyEfCore.Model.ManyToMany;
@@ -37,15 +38,19 @@ namespace MyEfCore.MyContext
 
         //public DbSet<Parent> Parent { get; set; }
         //public DbSet<Child> Child { get; set; }
-        public DbSet<BMW> BMW { get; set; } 
-        public DbSet<BmwModels> BmwModels { get; set; }
-
-
+      //  public DbSet<BMW> BMW { get; set; } 
+        //public DbSet<BmwModels> BmwModels { get; set; }
+        //public DbSet<Books> books { get; set; }
+        //public DbSet<BookCategory2> bookCategories2 { get; set; }
+        //public DbSet<BookCategoryCount> bookCategoryCounts { get; set; } 
+        public DbSet<Holding> Holding { get; set; }
+        public DbSet<Subsidiaries> Subsidiaries { get; set; }
+       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer(Program.config["db"]);
-            optionsBuilder.UseLazyLoadingProxies();// работает только при условии что навигационные поля виртуальные
+           // optionsBuilder.UseLazyLoadingProxies();// работает только при условии что навигационные поля виртуальные
             optionsBuilder.UseSqlServer("Server=LERA;Database=ado;Trusted_Connection=True;TrustServerCertificate=True;Connect Timeout=30");
             optionsBuilder.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
         }

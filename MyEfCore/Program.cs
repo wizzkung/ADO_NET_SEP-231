@@ -17,15 +17,22 @@ namespace MyEfCore
             //m.fetch();
             //EfHomeWork_1 m = new EfHomeWork_1();
             //ModelsService services = new ModelsService();
-            BmwServices bmwServices = new BmwServices();
-           // bmwServices.Service_1();
+            //  BmwServices bmwServices = new BmwServices();
+            // bmwServices.Service_1();
             //bmwServices.Service_2();
             //bmwServices.Service_3();
-            bmwServices.Service_4();
+            //bmwServices.Service_4();
 
             //services.Service();
             // services.Family();
             //services.FromNavigation();
+
+            HoldingSubs hs = new HoldingSubs();
+
+            hs.Add();
+            hs.Edit();
+            hs.Delete();
+
 
             //m.DataAdd();
             //m.ShowData();
@@ -36,6 +43,9 @@ namespace MyEfCore
             //School school = new School();
             //school.Add();
 
+           // TakeProc takeProc = new TakeProc();
+
+            //takeProc.proc();
 
 
 
